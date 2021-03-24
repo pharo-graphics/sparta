@@ -10,7 +10,7 @@ BaselineOfSpartaWrapper >> baseline: spec [
 	spec for: #'common' do: [
 		spec 
 			baseline: 'SpartaCore' with: [
-				spec repository: 'github://feenkcom/Sparta/src' ].
+				spec repository: 'github://pharo-graphics/Sparta/src' ].
 		spec
 			package: 'Sparta-Wrapper'
 			with: [ spec requires: #('SpartaCore') ] ]
