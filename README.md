@@ -2,6 +2,12 @@
 
 Sparta is an almost stateless vector graphics API for Pharo that provides bindings to the Skia rendering backend.
 
+:warning:
+This repository contains the code for Sparta that may be included in the future in Pharo.
+It retrofits a part of the development made at https://github.com/feenkcom/Sparta.
+This version will focus on core features and stability.
+We are currently identifying the core we want for Pharo.
+
 ### Install
 
 **More detailed installation guide is described in [INSTALL.md](INSTALL.md)**
@@ -11,7 +17,7 @@ Sparta requires an extra Skia vm plugin. The plugin for the current OS and VM (6
 ```smalltalk 
 Metacello new
     baseline: 'Sparta';
-    repository: 'github://feenkcom/sparta/src';
+    repository: 'github://pharo-graphics/sparta/src';
     load
 ```
 
