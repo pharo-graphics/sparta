@@ -5,7 +5,7 @@ Trait {
 
 { #category : #'library path' }
 TSpartaCairoLibrary classSide >> ffiLibraryName [
-	^ SpartaCairoLibrary
+	^ CairoLibrary
 ]
 
 { #category : #'library path' }

@@ -6,7 +6,7 @@ Class {
 
 { #category : #'library path' }
 SpartaCairoTransformationBuilder class >> ffiLibraryName [
-	^ SpartaCairoLibrary
+	^ CairoLibrary
 ]
 
 { #category : #accessing }
