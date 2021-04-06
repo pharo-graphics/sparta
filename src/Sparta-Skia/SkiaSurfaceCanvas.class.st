@@ -145,13 +145,14 @@ SkiaSurfaceCanvas >> clipRectangle: aSpartaRectangle offset: anOffset [
 
 { #category : #'api - clip' }
 SkiaSurfaceCanvas >> clipRectangle: aSpartaRectangle offset: anOffset clipOp: aSkiaClipOp antiAlias: isAntiAlias [
-	<argument: #aSpartaRectangle satisfies: #isSpartaScalarRectangle>
-	<argument: #anOffset satisfies: #isSpartaScalarPoint>
-	<argument: #aSkiaClipOp isKindOf: #SkiaClipOp>
-	<argument: #isAntiAlias isKindOf: #Boolean>
+	"aSpartaRectangle should satisfy #isSpartaScalarRectangle,
+	anOffset  #isSpartaScalarPoint"
 	
 	self
-		primClipRectangleLeft: aSpartaRectangle left top: aSpartaRectangle top right: aSpartaRectangle right bottom: aSpartaRectangle bottom
+		primClipRectangleLeft: aSpartaRectangle left 
+		top: aSpartaRectangle top 
+		right: aSpartaRectangle right 
+		bottom: aSpartaRectangle bottom
 		offsetX: anOffset x
 		offsetY: anOffset y
 		clipOp: aSkiaClipOp
