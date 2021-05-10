@@ -1,6 +1,6 @@
 Class {
 	#name : #SkiaCanvasExamples,
-	#superclass : #Object,
+	#superclass : #BlExamplesTest,
 	#traits : 'TSpartaExamples',
 	#classTraits : 'TSpartaExamples classTrait',
 	#category : #'Sparta-Skia-Examples'

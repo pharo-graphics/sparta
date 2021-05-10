@@ -1,9 +1,9 @@
 Class {
 	#name : #SpartaCairoExamples,
-	#superclass : #Object,
+	#superclass : #BlExamplesTest,
 	#traits : 'TSpartaExamples',
 	#classTraits : 'TSpartaExamples classTrait',
-	#category : 'Sparta-Cairo-Examples'
+	#category : #'Sparta-Cairo-Examples'
 }
 
 { #category : #'instance creation' }
