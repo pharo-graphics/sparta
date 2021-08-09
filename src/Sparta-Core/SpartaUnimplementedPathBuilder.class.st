@@ -76,6 +76,6 @@ SpartaUnimplementedPathBuilder >> relative [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'path commands' }
 SpartaUnimplementedPathBuilder >> reset [
 ]
