@@ -20,6 +20,11 @@ SpartaTransformationOperation >> isIdentity [
 	^ self subclassResponsibility
 ]
 
+{ #category : #accessing }
+SpartaTransformationOperation >> isReversable [
+	^ self subclassResponsibility
+]
+
 { #category : #enumerating }
 SpartaTransformationOperation >> reverseConcatenationDo: aBlock [
 ]

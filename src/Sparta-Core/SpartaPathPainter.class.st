@@ -207,6 +207,12 @@ SpartaPathPainter >> composeXor [
 ]
 
 { #category : #accessing }
+SpartaPathPainter >> containsPoint: aPoint [
+
+	^ self subclassResponsibility
+]
+
+{ #category : #accessing }
 SpartaPathPainter >> drawOptions [
 	^ drawOptions ifNil: [ drawOptions := canvas drawOptions ]
 ]

@@ -161,6 +161,12 @@ SpartaCanvas class >> clipHelp [
 ]
 
 { #category : #accessing }
+SpartaCanvas class >> createForData: aData extent: aPoint stride: stride format: aSurfaceFormat [
+
+	^ self subclassResponsibility
+]
+
+{ #category : #accessing }
 SpartaCanvas class >> drawOptions [
 	^ self subclassResponsibility
 ]
