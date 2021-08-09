@@ -59,6 +59,18 @@ SpartaMatrix >> closeTo: aSpartaMatrix epsilon: anEpsilon [
 						and: [ ((y - aSpartaMatrix y) abs <= anEpsilon) ] ] ] ] ]
 ]
 
+{ #category : #comparing }
+SpartaMatrix >> hash [
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ shx hash bitXor: 
+		(shy hash bitXor:
+			(sx hash bitXor:
+				(sy hash bitXor:
+					(x hash bitXor:
+						y hash))))
+]
+
 { #category : #'initialize-release' }
 SpartaMatrix >> initialize [
 	self loadIdentity
