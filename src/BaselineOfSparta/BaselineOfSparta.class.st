@@ -15,7 +15,7 @@ BaselineOfSparta >> baseline: spec [
 			baseline: 'SpartaCore' with: [
 				spec repository: 'github://pharo-graphics/Sparta/src' ];
 			baseline: 'SpartaCairo' with: [
-				spec repository: 'github://pharo-graphics/Sparta/src' ];
+				spec repository: 'github://pharo-graphics/Sparta/src' ]";
 			baseline: 'SpartaSkia' with: [
-				spec repository: 'github://pharo-graphics/Sparta/src' ] ]
+				spec repository: 'github://pharo-graphics/Sparta/src' ]" ]
 ]
