@@ -42,7 +42,7 @@ SkiaFontBuilder >> build [
 	| aSpartaFontFace theFontsDictionary |
 	
 	aSpartaFontFace := SpartaFontFace new
-		familyName: (familyName ifNil: [ 'Helvetica' ]);
+		familyName: (familyName ifNil: [ self defaultName ]);
 		weight: weight;
 		stretch: stretch;
 		style: style.

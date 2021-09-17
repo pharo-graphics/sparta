@@ -77,6 +77,12 @@ SpartaFontBuilder >> defaultLanguage [
 ]
 
 { #category : #initialization }
+SpartaFontBuilder >> defaultName [
+
+	^ 'Helvetica'
+]
+
+{ #category : #initialization }
 SpartaFontBuilder >> defaultSize [
 	^ 14
 ]

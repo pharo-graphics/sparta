@@ -12,7 +12,7 @@ SpartaCairoFreetypeFontBuilder >> build [
 	| aFamilyName theFallbackFonts aLogicalFont |
 	
 	aFamilyName := (fontList isNil or: [ fontList isEmpty ])
-		ifTrue: [ StandardFonts defaultFont familyName ]
+		ifTrue: [ self defaultName ]
 		ifFalse: [ fontList first ].
 
 	theFallbackFonts := fontList ifNotNil: [
