@@ -1,0 +1,16 @@
+SmalltalkCISpec {
+	#loading : [
+		SCIMetacelloLoadSpec {
+			#baseline : 'Sparta',
+			#directory : 'src',
+			#platforms : [ #pharo ]
+		}
+	],
+	#testing : {
+		#packages : [ 'Sparta.*' ],
+		#coverage : {
+			#packages : [ 'Sparta.*' ]
+		},
+		#failOnZeroTests: false
+	}
+}
