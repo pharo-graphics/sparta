@@ -1,5 +1,7 @@
 # Sparta
 
+[![Tests](https://github.com/pharo-graphics/sparta/actions/workflows/test.yml/badge.svg)](https://github.com/pharo-graphics/sparta/actions/workflows/test.yml)
+
 Sparta is an almost stateless vector graphics API for Pharo that provides bindings to the Skia rendering backend.
 
 :warning:
