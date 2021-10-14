@@ -1,6 +1,6 @@
 Class {
 	#name : #SpartaCairoExamples,
-	#superclass : #BlExamplesTest,
+	#superclass : #Object,
 	#traits : 'TSpartaExamples',
 	#classTraits : 'TSpartaExamples classTrait',
 	#category : #'Sparta-Cairo-Examples'
