@@ -9,7 +9,7 @@ Class {
 		'userToDeviceMatrix',
 		'options'
 	],
-	#category : 'Sparta-Cairo-Text'
+	#category : #'Sparta-Cairo-Text'
 }
 
 { #category : #'instance creation' }
@@ -119,12 +119,10 @@ SpartaCairoScaledFont >> makeTextRunNoReleaseWide: aString [
 
 	aGlyphsArrayPtr := ExternalAddress new.
 	aGlyphsNumPtr := ByteArray new: FFIInt32 externalTypeSize.
-
-	aBuffer := UTF8TextConverter default convertToSystemString: aString.
+	aBuffer := aString asUTF8Bytes.
 
 	aStatus := self primTextToGlyphs: aBuffer length: aBuffer size glyphs: aGlyphsArrayPtr num: aGlyphsNumPtr x: 0.0 y: 0.0.
-	aStatus isSuccess
-		ifFalse: [ SpartaCairoError signal: aStatus ].
+	aStatus isSuccess ifFalse: [ SpartaCairoError signal: aStatus ].
 	
 	aGlyphsNum := aGlyphsNumPtr unsignedLongAt: 1.
 	aGlyphsArray := FFIExternalArray fromHandle: aGlyphsArrayPtr type: SpartaCairoGlyph size: aGlyphsNum.
