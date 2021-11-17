@@ -812,7 +812,7 @@ TSpartaExamples >> benchmarkDrawTextAtRandomLocations [
 	| extent amount points words canvas font |
 
 	extent := 1000@1000.
-	amount := 100000.
+	amount := 1000.
 
 	points := amount timesCollect: [ (10@30) + ((extent x - 50) atRandom @ (extent y - 50) atRandom) ].
 	words := amount timesCollect: [ ((4 + 10 atRandom) timesCollect: [ ($a to: $z) atRandom ]) as: String ].
@@ -824,13 +824,13 @@ TSpartaExamples >> benchmarkDrawTextAtRandomLocations [
 		size: 14;
 		build.
 
-	^ MessageTally on: [	
-	words with: points do: [ :word :point |
-		canvas text
-			font: font;
-			string: word;
-			baseline: point;
-			draw ] ]
+	^ "MessageTally spyOn:" [	
+			words with: points do: [ :word :point |
+				canvas text
+					font: font;
+					string: word;
+					baseline: point;
+					draw ] ] benchFor: 2 seconds
 ]
 
 { #category : #benchmarks }
