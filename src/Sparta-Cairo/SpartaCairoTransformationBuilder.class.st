@@ -1,13 +1,10 @@
 Class {
 	#name : #SpartaCairoTransformationBuilder,
 	#superclass : #SpartaTransformationBuilder,
+	#traits : 'TSpartaCairoLibrary',
+	#classTraits : 'TSpartaCairoLibrary classTrait',
 	#category : #'Sparta-Cairo-Builders'
 }
-
-{ #category : #'library path' }
-SpartaCairoTransformationBuilder class >> ffiLibraryName [
-	^ CairoLibrary
-]
 
 { #category : #accessing }
 SpartaCairoTransformationBuilder >> current [
