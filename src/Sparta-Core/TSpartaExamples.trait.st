@@ -1090,6 +1090,32 @@ TSpartaExamples >> benchmarkFillSimpleRoundedRectangleWithOpaqueColorNoPathCache
 ]
 
 { #category : #benchmarks }
+TSpartaExamples >> benchmarkRectangleFigureWithoutBorder [
+	<gtExample>
+	<noTest>
+	| aCanvas aRectangle aColor |
+
+	aCanvas := self class canvas: 300@200.
+	aCanvas fill
+		path: aCanvas bounds;
+		paint: Color white;
+		draw.
+		
+	aRectangle := 50@50 corner: 250@150.
+	aColor := Color brown.
+		
+	^ self resultOfBenchmarking: [ aCanvas figure
+			path: aRectangle;
+			background: aColor;
+			backgroundAlpha: 1.0;
+			border: Color transparent;
+			borderAlpha: 1.0;
+			width: 0.0;
+			draw ]
+		canvas: aCanvas
+]
+
+{ #category : #benchmarks }
 TSpartaExamples >> benchmarkTextRunWithMetrics [
 	<gtExample>
 	<noTest>
@@ -1425,31 +1451,6 @@ TSpartaExamples >> drawRadialGradientPartial [
 		draw.
 
 	^ aCanvas
-]
-
-{ #category : #'benchmarks - figure' }
-TSpartaExamples >> figureRectangleWithoutBorder [
-	<gtExample>
-	<noTest>
-	| aCanvas aRectangle aColor |
-
-	aCanvas := self class canvas: 300@200.
-	aCanvas fill
-		path: aCanvas bounds;
-		paint: Color white;
-		draw.
-		
-	aRectangle := 50@50 corner: 250@150.
-	aColor := Color brown.
-		
-	^ [ aCanvas figure
-			path: aRectangle;
-			background: aColor;
-			backgroundAlpha: 1.0;
-			border: Color transparent;
-			borderAlpha: 1.0;
-			width: 0.0;
-			draw ] benchFor: 2 seconds
 ]
 
 { #category : #'examples - fill circle' }
