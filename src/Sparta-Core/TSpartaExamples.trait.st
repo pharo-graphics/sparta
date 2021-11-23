@@ -776,10 +776,12 @@ TSpartaExamples >> benchmarkClipRectangle [
 		draw.
 
 	aRectangle := 50@50 corner: 250@150.
-		
-	^ [ aCanvas clip
+	
+	^ self resultOfBenchmarking: [
+		aCanvas clip
 			by: aRectangle
-			during: [  ] ] benchFor: 2 seconds
+			during: [  ] ]
+		canvas: aCanvas
 ]
 
 { #category : #benchmarks }
@@ -797,12 +799,14 @@ TSpartaExamples >> benchmarkClipSubRectangle [
 	aRectangle := 50@50 corner: 250@150.
 	aSubRectangle := 100@100 corner: 400@300.
 		
-	^ [ aCanvas clip
+	^ self resultOfBenchmarking: [
+		aCanvas clip
 			by: aRectangle
 			during: [
 				aCanvas clip
 					by: aSubRectangle
-					during: [  ] ] ] benchFor: 2 seconds
+					during: [  ] ] ]
+		canvas: aCanvas
 ]
 
 { #category : #benchmarks }
@@ -824,13 +828,14 @@ TSpartaExamples >> benchmarkDrawTextAtRandomLocations [
 		size: 14;
 		build.
 
-	^ "MessageTally spyOn:" [	
+	^ self resultOfBenchmarking: [	
 			words with: points do: [ :word :point |
 				canvas text
 					font: font;
 					string: word;
 					baseline: point;
-					draw ] ] benchFor: 2 seconds
+					draw ] ]
+		canvas: canvas
 ]
 
 { #category : #benchmarks }
@@ -852,12 +857,14 @@ TSpartaExamples >> benchmarkDrawTextWithBlackColor [
 		string: 'Hello world! Hello world! Hello world!';
 		textRun.
 		
-	^ [ aCanvas text
-		baseline: 10@50;
-		font: aFont;
-		text: aText;
-		paint: Color black;
-		draw ] benchFor: 2 seconds
+	^ self resultOfBenchmarking: [
+		aCanvas text
+			baseline: 10@50;
+			font: aFont;
+			text: aText;
+			paint: Color black;
+			draw ]
+		canvas: aCanvas
 ]
 
 { #category : #benchmarks }
@@ -879,12 +886,14 @@ TSpartaExamples >> benchmarkDrawTextWithOpaqueColor [
 		string: 'Hello world! Hello world! Hello world!';
 		textRun.
 		
-	^ [ aCanvas text
-		baseline: 10@50;
-		font: aFont;
-		text: aText;
-		paint: (Color brown);
-		draw ] benchFor: 2 seconds
+	^ self resultOfBenchmarking: [
+		aCanvas text
+			baseline: 10@50;
+			font: aFont;
+			text: aText;
+			paint: (Color brown);
+			draw ]
+		canvas: aCanvas
 ]
 
 { #category : #benchmarks }
@@ -906,12 +915,14 @@ TSpartaExamples >> benchmarkDrawTextWithSemiTransparentColor [
 		string: 'Hello world! Hello world! Hello world!';
 		textRun.
 		
-	^ [ aCanvas text
-		baseline: 10@50;
-		font: aFont;
-		text: aText;
-		paint: (Color red alpha: 0.4);
-		draw ] benchFor: 2 seconds
+	^ self resultOfBenchmarking: [
+		aCanvas text
+			baseline: 10@50;
+			font: aFont;
+			text: aText;
+			paint: (Color red alpha: 0.4);
+			draw ]
+		canvas: aCanvas
 ]
 
 { #category : #benchmarks }
@@ -929,10 +940,12 @@ TSpartaExamples >> benchmarkFillRectangleWithBlackColor [
 	aRectangle := 50@50 corner: 250@150.
 	aColor := Color black.
 		
-	^ [ aCanvas fill
-		path: aRectangle;
-		paint: aColor;
-		draw ] benchFor: 2 seconds
+	^ self resultOfBenchmarking: [
+		aCanvas fill
+			path: aRectangle;
+			paint: aColor;
+			draw ]
+		canvas: aCanvas
 ]
 
 { #category : #benchmarks }
@@ -953,16 +966,12 @@ TSpartaExamples >> benchmarkFillRectangleWithForm [
 	aForm fillColor: Color veryLightGray.
 	aForm fill: (aForm boundingBox insetBy: 25) fillColor: Color gray.	
 		
-	[ 10000 timesRepeat: [ aCanvas fill
-		path: aRectangle;
-		paint: aForm;
-		draw ] ] timeProfile.
-		
-	
-	^ [ aCanvas fill
-		path: aRectangle;
-		paint: aForm;
-		draw ] benchFor: 2 seconds
+	^ self resultOfBenchmarking: [
+		aCanvas fill
+			path: aRectangle;
+			paint: aForm;
+			draw ]
+		canvas: aCanvas
 ]
 
 { #category : #benchmarks }
@@ -980,10 +989,12 @@ TSpartaExamples >> benchmarkFillRectangleWithOpaqueColor [
 	aRectangle := 50@50 corner: 250@150.
 	aColor := Color brown.
 		
-	^ [ aCanvas fill
-		path: aRectangle;
-		paint: aColor;
-		draw ] benchFor: 2 seconds
+	^ self resultOfBenchmarking: [
+		aCanvas fill
+			path: aRectangle;
+			paint: aColor;
+			draw ]
+		canvas: aCanvas
 ]
 
 { #category : #benchmarks }
@@ -1001,10 +1012,12 @@ TSpartaExamples >> benchmarkFillRectangleWithWhiteColor [
 	aRectangle := 50@50 corner: 250@150.
 	aColor := Color white.
 		
-	^ [ aCanvas fill
-		path: aRectangle;
-		paint: aColor;
-		draw ] benchFor: 2 seconds
+	^ self resultOfBenchmarking: [
+		aCanvas fill
+			path: aRectangle;
+			paint: aColor;
+			draw ]
+		canvas: aCanvas
 ]
 
 { #category : #benchmarks }
@@ -1022,10 +1035,12 @@ TSpartaExamples >> benchmarkFillRoundedRectangleWithOpaqueColorNoPathCache [
 	aRectangle := 50@50 corner: 250@150.
 	aColor := Color brown.
 		
-	^ [ aCanvas fill
-		path: (aCanvas shape roundedRectangle: aRectangle radii: #(20 30 40 50));
-		paint: aColor;
-		draw ] benchFor: 2 seconds
+	^ self resultOfBenchmarking: [
+		aCanvas fill
+			path: (aCanvas shape roundedRectangle: aRectangle radii: #(20 30 40 50));
+			paint: aColor;
+			draw ]
+		canvas: aCanvas
 ]
 
 { #category : #benchmarks }
@@ -1043,10 +1058,12 @@ TSpartaExamples >> benchmarkFillSimpleRoundedRectangleWithOpaqueColor [
 	aRectangle := aCanvas shape roundedRectangle: (50@50 corner: 250@150) radii: #(20 20 20 20).
 	aColor := Color brown.
 		
-	^ [ aCanvas fill
-		path: aRectangle;
-		paint: aColor;
-		draw ] benchFor: 2 seconds
+	^ self resultOfBenchmarking: [
+		aCanvas fill
+			path: aRectangle;
+			paint: aColor;
+			draw ]
+		canvas: aCanvas
 ]
 
 { #category : #benchmarks }
@@ -1064,10 +1081,12 @@ TSpartaExamples >> benchmarkFillSimpleRoundedRectangleWithOpaqueColorNoPathCache
 	aRectangle := 50@50 corner: 250@150.
 	aColor := Color brown.
 		
-	^ [ aCanvas fill
-		path: (aCanvas shape roundedRectangle: aRectangle radii: #(20 20 20 20));
-		paint: aColor;
-		draw ] benchFor: 2 seconds
+	^ self resultOfBenchmarking: [
+		aCanvas fill
+			path: (aCanvas shape roundedRectangle: aRectangle radii: #(20 20 20 20));
+			paint: aColor;
+			draw ]
+		canvas: aCanvas
 ]
 
 { #category : #benchmarks }
@@ -1080,11 +1099,11 @@ TSpartaExamples >> benchmarkTextRunWithMetrics [
 	aFont := aCanvas font build.
 	aString := 'Hello world!'.
 	
-	^ [ 
+	^ self resultOfBenchmarking: [ 
 		| aTextPainter |
 		aTextPainter := aCanvas text font: aFont; string: aString.
-		aTextPainter textRunWithMetrics: aTextPainter metrics
-	 ] benchFor: 2 seconds
+		aTextPainter textRunWithMetrics: aTextPainter metrics ]
+		canvas: aCanvas
 ]
 
 { #category : #benchmarks }
@@ -1094,7 +1113,9 @@ TSpartaExamples >> benchmarkTransformCurrentMatrix [
 	| aCanvas |
 
 	aCanvas := self class canvas: 300@200.
-	^ [ aCanvas transform current ] benchFor: 2 seconds
+	^ self
+		resultOfBenchmarking: [ aCanvas transform current ]
+		canvas: aCanvas
 ]
 
 { #category : #benchmarks }
@@ -1111,9 +1132,11 @@ TSpartaExamples >> benchmarkTransformTranslateBy [
 
 	aDelta := 100@50.
 		
-	^ [ aCanvas transform
+	^ self resultOfBenchmarking: [
+		aCanvas transform
 			by: [ :t | t translateBy: aDelta ]
-			during: [  ] ] benchFor: 2 seconds
+			during: [  ] ]
+		canvas: aCanvas
 ]
 
 { #category : #'examples - clip circle' }
@@ -1720,6 +1743,12 @@ TSpartaExamples >> mario [
 				paint: (colors at: dot);
 				draw ] ].
 	^ canvas
+]
+
+{ #category : #benchmarks }
+TSpartaExamples >> resultOfBenchmarking: aBlockClosure canvas: aCanvas [
+
+	^ { aBlockClosure benchFor: 2 seconds. aCanvas asForm }
 ]
 
 { #category : #'examples - transformation' }
