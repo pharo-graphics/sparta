@@ -816,7 +816,7 @@ TSpartaExamples >> benchmarkDrawTextAtRandomLocations [
 	| extent amount points words canvas font |
 
 	extent := 1000@1000.
-	amount := 1000.
+	amount := 500.
 
 	points := amount timesCollect: [ (10@30) + ((extent x - 50) atRandom @ (extent y - 50) atRandom) ].
 	words := amount timesCollect: [ ((4 + 10 atRandom) timesCollect: [ ($a to: $z) atRandom ]) as: String ].
