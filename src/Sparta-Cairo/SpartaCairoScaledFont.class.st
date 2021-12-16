@@ -88,12 +88,13 @@ SpartaCairoScaledFont >> makeTextRunNoRelease: aString [
 
 { #category : #'instance creation' }
 SpartaCairoScaledFont >> makeTextRunNoReleaseAscii: aString [
-	| aGlyphsArrayPtr aGlyphsNumPtr aStatus aGlyphsArray aGlyphsNum  aTextRun |
+	| aGlyphsArrayPtr aGlyphsNumPtr aStatus aGlyphsArray aGlyphsNum  aTextRun aBuffer |
 
 	aGlyphsArrayPtr := ExternalAddress new.
 	aGlyphsNumPtr := ByteArray new: FFIInt32 externalTypeSize.
+	aBuffer := aString asUTF8Bytes.
 
-	aStatus := self primTextToGlyphs: aString length: aString size glyphs: aGlyphsArrayPtr num: aGlyphsNumPtr x: 0.0 y: 0.0.
+	aStatus := self primTextToGlyphs: aBuffer length: aBuffer size glyphs: aGlyphsArrayPtr num: aGlyphsNumPtr x: 0.0 y: 0.0.
 	aStatus isSuccess
 		ifFalse: [ SpartaCairoError signal: aStatus ].
 	
@@ -105,7 +106,7 @@ SpartaCairoScaledFont >> makeTextRunNoReleaseAscii: aString [
 			
 	aTextRun := SpartaCairoTextRun new
 		bits: 8;
-		buffer: aString;
+		buffer: aBuffer;
 		length: aGlyphsNum;
 		glyphs: aGlyphsArray;
 		scaledFont: self.
