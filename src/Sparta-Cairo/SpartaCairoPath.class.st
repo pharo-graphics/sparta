@@ -135,10 +135,10 @@ SpartaCairoPath >> strokedBounds: aStrokeOptions [
 	[ | originX originY cornerX cornerY |
 
 	strokePainter applyStrokeOptions.
-	originX := FFIExternalArray externalNewType: 'double' size: 1.
-	originY := FFIExternalArray externalNewType: 'double' size: 1.
-	cornerX := FFIExternalArray externalNewType: 'double' size: 1.
-	cornerY := FFIExternalArray externalNewType: 'double' size: 1.
+	originX := BlFFIDoubleArray newUnary.
+	originY := BlFFIDoubleArray newUnary.
+	cornerX := BlFFIDoubleArray newUnary.
+	cornerY := BlFFIDoubleArray newUnary.
 	
 	strokePainter
 		primNewPath;
@@ -152,11 +152,6 @@ SpartaCairoPath >> strokedBounds: aStrokeOptions [
 		cornerY: cornerY getHandle.
 
 	bounds := (originX at: 1)@(originY at: 1) corner: (cornerX at: 1)@(cornerY at: 1).
-	
-	originX free.
-	originY free.
-	cornerX free.
-	cornerY free.
 	
 	] ensure: [
 		strokePainter primNewPath.
@@ -180,10 +175,10 @@ SpartaCairoPath >> strokedBoundsOn: aSpartaCairoCanvas with: aStrokeOptions [
 	[ | originX originY cornerX cornerY |
 
 	strokePainter applyStrokeOptions.
-	originX := FFIExternalArray externalNewType: 'double' size: 1.
-	originY := FFIExternalArray externalNewType: 'double' size: 1.
-	cornerX := FFIExternalArray externalNewType: 'double' size: 1.
-	cornerY := FFIExternalArray externalNewType: 'double' size: 1.
+	originX := BlFFIDoubleArray newUnary.
+	originY := BlFFIDoubleArray newUnary.
+	cornerX := BlFFIDoubleArray newUnary.
+	cornerY := BlFFIDoubleArray newUnary.
 	
 	self setOnCanvas: aSpartaCairoCanvas.
 	
@@ -195,11 +190,6 @@ SpartaCairoPath >> strokedBoundsOn: aSpartaCairoCanvas with: aStrokeOptions [
 		cornerY: cornerY getHandle.
 
 	bounds := (originX at: 1)@(originY at: 1) corner: (cornerX at: 1)@(cornerY at: 1).
-	
-	originX free.
-	originY free.
-	cornerX free.
-	cornerY free.
 	
 	] ensure: [
 		strokePainter primNewPath.

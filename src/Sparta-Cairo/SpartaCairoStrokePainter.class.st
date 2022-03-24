@@ -3,7 +3,7 @@ Class {
 	#superclass : #SpartaStrokePainter,
 	#traits : 'TSpartaCairoLibrary + TSpartaCairoContext',
 	#classTraits : 'TSpartaCairoLibrary classTrait + TSpartaCairoContext classTrait',
-	#category : 'Sparta-Cairo-Builders'
+	#category : #'Sparta-Cairo-Builders'
 }
 
 { #category : #private }
@@ -32,7 +32,7 @@ SpartaCairoStrokePainter >> applyStrokeOptions [
 		primSetLineJoin: strokeOptions lineJoin;
 		primSetMiterLimit: strokeOptions miterLimit.
 		
-	theDashes := FFIExternalArray newType: 'double' size: strokeOptions dashPattern size.
+	theDashes := BlFFIDoubleArray new: strokeOptions dashPattern size.
 	theDashes atAll: (1 to: strokeOptions dashPattern size) putAll: strokeOptions dashPattern.
 	
 	self primSetDashes: theDashes getHandle count: strokeOptions dashPattern size offset: strokeOptions dashOffset
@@ -66,7 +66,7 @@ SpartaCairoStrokePainter >> restoreStrokeOptions [
 		primSetLineJoin: aStrokeOptions lineJoin;
 		primSetMiterLimit: aStrokeOptions miterLimit.
 		
-	theDashes := FFIExternalArray newType: 'double' size: aStrokeOptions dashPattern size.
+	theDashes := BlFFIDoubleArray new: aStrokeOptions dashPattern size.
 	theDashes atAll: (1 to: aStrokeOptions dashPattern size) putAll: aStrokeOptions dashPattern.
 	
 	self primSetDashes: theDashes getHandle count: aStrokeOptions dashPattern size offset: aStrokeOptions dashOffset
