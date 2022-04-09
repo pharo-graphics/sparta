@@ -13,7 +13,7 @@ BaselineOfSpartaCairo >> baseline: spec [
 	<baseline>
 	spec for: #'common' do: [
 		spec baseline: 'SpartaCore' with: [
-				spec repository: 'github://pharo-graphics/Sparta:releasing/src' ].
+				spec repository: 'github://pharo-graphics/Sparta:v0.9.0/src' ].
 		spec package: 'Sparta-Cairo' with: [
 				spec requires: #('SpartaCore' ). ]. ].
 
