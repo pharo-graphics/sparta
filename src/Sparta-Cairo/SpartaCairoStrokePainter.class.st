@@ -32,7 +32,7 @@ SpartaCairoStrokePainter >> applyStrokeOptions [
 		primSetLineJoin: strokeOptions lineJoin;
 		primSetMiterLimit: strokeOptions miterLimit.
 		
-	theDashes := BlFFIDoubleArray new: strokeOptions dashPattern size.
+	theDashes := SpartaCairoFFIDoubleArray new: strokeOptions dashPattern size.
 	theDashes atAll: (1 to: strokeOptions dashPattern size) putAll: strokeOptions dashPattern.
 	
 	self primSetDashes: theDashes getHandle count: strokeOptions dashPattern size offset: strokeOptions dashOffset
@@ -66,7 +66,7 @@ SpartaCairoStrokePainter >> restoreStrokeOptions [
 		primSetLineJoin: aStrokeOptions lineJoin;
 		primSetMiterLimit: aStrokeOptions miterLimit.
 		
-	theDashes := BlFFIDoubleArray new: aStrokeOptions dashPattern size.
+	theDashes := SpartaCairoFFIDoubleArray new: aStrokeOptions dashPattern size.
 	theDashes atAll: (1 to: aStrokeOptions dashPattern size) putAll: aStrokeOptions dashPattern.
 	
 	self primSetDashes: theDashes getHandle count: aStrokeOptions dashPattern size offset: aStrokeOptions dashOffset
