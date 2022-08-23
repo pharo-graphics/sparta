@@ -1,20 +1,20 @@
 Class {
-	#name : #BlFFIDoubleArray,
+	#name : #SpartaCairoFFIDoubleArray,
 	#superclass : #FFIExternalArray,
 	#category : #'Sparta-Cairo'
 }
 
 { #category : #'instance creation' }
-BlFFIDoubleArray class >> new [
+SpartaCairoFFIDoubleArray class >> new [
 	^ self shouldNotImplement
 ]
 
 { #category : #'instance creation' }
-BlFFIDoubleArray class >> new: size [ 
+SpartaCairoFFIDoubleArray class >> new: size [ 
 	^ self newType: FFIFloat64 size: size
 ]
 
 { #category : #'instance creation' }
-BlFFIDoubleArray class >> newUnary [
+SpartaCairoFFIDoubleArray class >> newUnary [
 	^ self new: 1
 ]

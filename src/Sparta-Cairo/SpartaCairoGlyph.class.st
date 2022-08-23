@@ -8,7 +8,7 @@ Class {
 		'OFFSET_X',
 		'OFFSET_Y'
 	],
-	#category : 'Sparta-Cairo-Text'
+	#category : #'Sparta-Cairo-Text'
 }
 
 { #category : #'field definition' }
@@ -33,6 +33,25 @@ SpartaCairoGlyph >> index [
 SpartaCairoGlyph >> index: anObject [
 	"This method was automatically generated"
 	^handle platformUnsignedLongAt: OFFSET_INDEX put: anObject
+]
+
+{ #category : #printing }
+SpartaCairoGlyph >> position [
+
+	^ self x @ self y
+]
+
+{ #category : #printing }
+SpartaCairoGlyph >> printOn: aStream [
+
+	super printOn: aStream.
+	aStream
+		nextPutAll: '(position: ';
+		print: self position;
+		nextPutAll: ' index: ';
+		print: self index;
+		nextPut: $)
+
 ]
 
 { #category : #'accessing structure variables' }

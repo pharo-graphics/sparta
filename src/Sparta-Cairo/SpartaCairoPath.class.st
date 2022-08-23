@@ -135,10 +135,10 @@ SpartaCairoPath >> strokedBounds: aStrokeOptions [
 	[ | originX originY cornerX cornerY |
 
 	strokePainter applyStrokeOptions.
-	originX := BlFFIDoubleArray newUnary.
-	originY := BlFFIDoubleArray newUnary.
-	cornerX := BlFFIDoubleArray newUnary.
-	cornerY := BlFFIDoubleArray newUnary.
+	originX := SpartaCairoFFIDoubleArray newUnary.
+	originY := SpartaCairoFFIDoubleArray newUnary.
+	cornerX := SpartaCairoFFIDoubleArray newUnary.
+	cornerY := SpartaCairoFFIDoubleArray newUnary.
 	
 	strokePainter
 		primNewPath;
@@ -175,10 +175,10 @@ SpartaCairoPath >> strokedBoundsOn: aSpartaCairoCanvas with: aStrokeOptions [
 	[ | originX originY cornerX cornerY |
 
 	strokePainter applyStrokeOptions.
-	originX := BlFFIDoubleArray newUnary.
-	originY := BlFFIDoubleArray newUnary.
-	cornerX := BlFFIDoubleArray newUnary.
-	cornerY := BlFFIDoubleArray newUnary.
+	originX := SpartaCairoFFIDoubleArray newUnary.
+	originY := SpartaCairoFFIDoubleArray newUnary.
+	cornerX := SpartaCairoFFIDoubleArray newUnary.
+	cornerY := SpartaCairoFFIDoubleArray newUnary.
 	
 	self setOnCanvas: aSpartaCairoCanvas.
 	

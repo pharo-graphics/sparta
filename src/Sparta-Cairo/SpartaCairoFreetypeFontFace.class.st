@@ -13,7 +13,7 @@ SpartaCairoFreetypeFontFace class >> create: aFreetypeFont [
 	<return: #SpartaCairoFreetypeFontFace>
 	| aCairoFontFace aSynthesize |
 
-	aCairoFontFace := self primCreate: aFreetypeFont face handle asExternalPointer.
+	aCairoFontFace := self primCreate: aFreetypeFont face getHandle asExternalPointer.
 	aCairoFontFace status isSuccess
 		ifFalse: [ SpartaCairoStatus signal: aCairoFontFace status ].
 	aCairoFontFace autoRelease.
