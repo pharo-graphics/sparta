@@ -57,6 +57,23 @@ SpartaCairoPathBuilder >> arcAround: aCenterPoint radius: aRadius startAngle: aS
 	lastControlPoint := nil
 ]
 
+{ #category : #'path commands' }
+SpartaCairoPathBuilder >> arcNegativeAround: aCenterPoint radius: aRadius startAngle: aStartAngle endAngle: anEndAngle [
+	| aCenter |
+	
+	aCenter := self toAbsolute: aCenterPoint.
+
+	self
+		primArcNegativeCenterX: aCenter x
+		centerY: aCenter y
+		radius: aRadius
+		startAngle: aStartAngle
+		endAngle: anEndAngle.
+		
+	endPoint := self currentPoint.
+	lastControlPoint := nil
+]
+
 { #category : #private }
 SpartaCairoPathBuilder >> arcTo: aPoint angle: angle cw: aBool [
 	"Add a clockwise arc segment, starting from current path endpoint and
