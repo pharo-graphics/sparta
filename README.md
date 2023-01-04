@@ -20,7 +20,7 @@ Sparta requires an extra Skia vm plugin. The plugin for the current OS and VM (6
 ```smalltalk 
 Metacello new
     baseline: 'Sparta';
-    repository: 'github://pharo-graphics/sparta/src';
+    repository: 'github://pharo-graphics/sparta:dev-1.0/src';
     load
 ```
 
